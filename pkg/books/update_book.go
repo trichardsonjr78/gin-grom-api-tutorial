@@ -25,7 +25,7 @@ func (h handler) UpdateBook(c *gin.Context) {
 
 	var book models.Book
 
-	if result := h.DB.Create(&book); result.Error != nil {
+	if result := h.DB.First(&book, id); result.Error != nil {
 		c.AbortWithError(http.StatusNotFound, result.Error)
 		return
 	}

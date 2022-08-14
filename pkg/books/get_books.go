@@ -7,15 +7,13 @@ import (
 	"github.com/trichardsonjr78/go-gin-api-medium/pkg/common/models"
 )
 
-func (h handler) GetBook(c *gin.Context) {
-	id := c.Param("id")
+func (h handler) GetBooks(c *gin.Context) {
+	var books []models.Book
 
-	var book models.Book
-
-	if result := h.DB.First(&book, id); result.Error != nil {
+	if result := h.DB.Find(&books); result.Error != nil {
 		c.AbortWithError(http.StatusNotFound, result.Error)
 		return
 	}
 
-	c.JSON(http.StatusOK, &book)
+	c.JSON(http.StatusOK, &books)
 }

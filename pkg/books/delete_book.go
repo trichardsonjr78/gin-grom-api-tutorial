@@ -18,7 +18,7 @@ func (h handler) DeleteBook(c *gin.Context) {
 		return
 	}
 
-	h.DB.DeleteBook(&book)
+	h.DB.Delete(&book)
 
 	c.Status(http.StatusOK)
 

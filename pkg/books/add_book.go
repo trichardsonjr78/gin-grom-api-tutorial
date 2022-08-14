@@ -17,7 +17,7 @@ func (h handler) AddBook(c *gin.Context) {
 	body := AddBookRequestBody{}
 
 	// getting request's body
-	if err := c.BindJson(&body); err != nil {
+	if err := c.BindJSON(&body); err != nil {
 		c.AbortWithError(http.StatusBadRequest, err)
 		return
 	}

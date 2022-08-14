@@ -1,4 +1,4 @@
-module github.com/trichardson/go-gin-api-medium
+module github.com/trichardsonjr78/go-gin-api-medium
 
 go 1.18
 
